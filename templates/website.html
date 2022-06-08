@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Churn Alert App</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand">CHURN ALERT</a> <!-- href="#" -->
+              </div>
+              <ul class="nav navbar-nav">
+                <!-- <li class="active"><a href="#">Home</a></li> -->
+                <li><a href="http://localhost:9090/templates/dashboard.html">Churn Report</a></li>
+                <li><a href="http://localhost:9090/templates/prediction.html">Churn Prediction</a></li>
+                <!-- <li><a href="#">Page 3</a></li> -->
+              </ul>
+            </div>
+          </nav>
+
+        <form name="form", method="POST", style="text-align: center;">
+            <br>
+            Account Length: <input type="number" name="accountlength", placeholder="Enter Months" required/>
+            <br><br>
+            Location: <input type="number" name="location", placeholder="Enter location (1/2/3)" required/>
+            <br><br>
+            International Plan?: <input type="number" name="intplan", placeholder="International Plan? (0/1)" required/>
+            <br><br>
+            Voice Mail Plan?: <input type="number" name="voiceplan", placeholder="Voice Mail Plan? (0/1)" required/>
+            <br><br>
+            Number of Voice Messages: <input type="number" name="voicemsgs", placeholder="No. of Voice Messages?" required/>
+            <br><br>
+            Number of Customer Service Calls: <input type="number" name="servicecalls", placeholder="No. of Service Calls" required/>
+            <br><br>
+            Total Day Minutes: <input type="number" name="daymin", placeholder="Enter daymin" required/>
+            <br><br>
+            Total Day Calls: <input type="number" name="daycalls", placeholder="Enter daycalls" required/>
+            <br><br>
+            Total EVening Minutes: <input type="number" name="evemin", placeholder="Enter evemin" required/>
+            <br><br>
+            Total Evening Calls: <input type="number" name="evecalls", placeholder="Enter evecalls" required/>
+            <br><br>
+            Total Night Minutes: <input type="number" name="nightmin", placeholder="Enter nightmin" required/>
+            <br><br>
+            Total Night Calls: <input type="number" name="nightcalls", placeholder="Enter nightcalls" required/>
+            <br><br>
+            Total International Minutes: <input type="number" name="intmin", placeholder="Enter intmin" required/>
+            <br><br>
+            Total International Calls: <input type="number" name="intcalls", placeholder="Enter intcalls" required/>
+            <br><br>
+            <button value="Submit">Run</button>
+        </form>
+        <p style="text-align: center;">{{ output }}</p>
+    </body>
+</html>

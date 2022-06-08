@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Churn App</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="/static/prediction.css">
+
+<style>
+.myForm {    
+    width: 72em;   
+    padding: 2em; 
+}
+
+</style>
+
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CHURN ALERT</a> <!-- href="#" -->
+      </div>
+      <ul class="nav navbar-nav">
+        
+        <li><a href="http://127.0.0.1:5000/dashboard">Churn Report</a></li>
+        <li><a href="http://127.0.0.1:5000/">Churn Prediction</a></li> 
+        
+      </ul>
+    </div>
+  </nav>
+    <br><br>
+<form class="myForm" method="POST">
+<h1 class="custdetails">Customer Details</h1>
+<br>
+<p>
+<label>Account Length (No. of Months)
+<input type="number" name="accountlength" required>
+</label> 
+</p>
+<br>
+
+<p>
+<label>Location
+<select id="pickup_place" name="location">
+<option value="" selected="selected">Select One</option>
+<option value="445" >445</option>
+<option value="452" >452</option>
+<option value="547" >547</option>
+</select>
+</label> 
+</p>
+<br>
+
+<p>
+<label>Number of Service Calls
+<input type="number" name="servicecalls" required>
+</label> 
+</p>
+<br><br>
+
+<fieldset>
+<legend>Plans</legend>
+<label>International Plan?
+<p><label class="choice"> <input type="radio" name="intplan" required value="yes"> Yes </label></p>
+<p><label class="choice"> <input type="radio" name="intplan" required value="no"> No </label></p>
+</label>
+<br>
+<label>Voice Mail Plan?
+<p><label class="choice"> <input type="radio" name="voiceplan" required value="yes"> Yes </label></p>
+<p><label class="choice"> <input type="radio" name="voiceplan" required value="no"> No </label></p>
+</label>
+<br>
+<p>
+<label>Number of Voicemail Messages
+<input type="number" name="voicemsgs" required>
+</label> 
+</p>
+</fieldset>
+<br><br>
+
+<fieldset>
+<legend>Day Time Call Details</legend>
+<p>
+<label>Total Daytime Minutes
+<input type="number" step="0.01" name="daymin" required>
+</label> 
+</p>
+<br>
+<p>
+<label>Total Daytime Calls
+<input type="number" name="daycalls" required>
+</label> 
+</p>
+</fieldset>
+<br><br>
+
+<fieldset>
+<legend>Evening Time Call Details</legend>
+<p>
+<label>Total Evening time Minutes
+<input type="number" step="0.01" name="evemin" required>
+</label> 
+</p>
+<br>
+<p>
+<label>Total Evening time Calls
+<input type="number" name="evecalls" required>
+</label> 
+</p>
+</fieldset>
+<br><br>
+
+<fieldset>
+<legend>Night Time Call Details</legend>
+<p>
+<label>Total Night time Minutes
+<input type="number" step="0.01" name="nightmin" required>
+</label> 
+</p>
+<br>
+<p>
+<label>Total Night time Calls
+<input type="number" name="nightcalls" required>
+</label> 
+</p>
+</fieldset>
+<br><br>
+
+<fieldset>
+<legend>International Call Details</legend>
+<p>
+<label>Total International Call Minutes
+<input type="number" step="0.01" name="intmin" required>
+</label> 
+</p>
+<br>
+<p>
+<label>Total International Calls
+<input type="number" name="intcalls" required>
+</label> 
+</p>
+</fieldset>
+<br><br>
+
+
+<p><button class="Click-here">Check</button></p>
+
+</form>
+
+</body>
+</html>

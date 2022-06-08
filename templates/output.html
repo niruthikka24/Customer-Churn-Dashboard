@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Outcome</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/static/prediction.css">
+
+</head>
+<body style="text-align: center;">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand">CHURN ALERT</a> <!-- href="#" -->
+          </div>
+          <ul class="nav navbar-nav">
+            <!-- <li class="active"><a href="#">Home</a></li> -->
+            <li><a href="http://127.0.0.1:5000/dashboard">Churn Report</a></li>
+            <li><a href="http://127.0.0.1:5000/">Churn Prediction</a></li>
+            <!-- <li><a href="#">Page 3</a></li> -->
+          </ul>
+        </div>
+      </nav>
+      <br><br><br><br><br>
+      
+      <h1>Churn Prediction Outcome </h1>
+        <div id = "result"></h1>
+        <img id="imgCont" src="" alt="" />
+
+        <script>
+            var imgelem = document.getElementById('imgCont');
+            var result = document.getElementById('result');
+            var x = "{{output}}";
+            if (x==0){
+                imgelem.src = "https://whitneysmithco.com/wp-content/uploads/2020/03/customer-clipart-customer-delight-413503-9190340.png";
+                value = "<h1 style='font-family:courier; color:green;  font-weight:bold; '>Non Churn Customer</h1><br><br><br>"
+            }
+            else if (x==1){
+                imgelem.src = "https://t4.ftcdn.net/jpg/03/88/07/81/360_F_388078160_MURgcPkWnYcfbcH8mdtQopQRXyTiQUAc.jpg";
+                value = "<h1 style='font-family:courier; color:red;  font-weight:bold;'>Churn Customer</h1>"
+            }
+            result.insertAdjacentHTML('afterbegin',value);
+        </script>
+</body>
+</html>
