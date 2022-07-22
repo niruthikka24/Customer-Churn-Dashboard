@@ -12,6 +12,116 @@
     padding: 0.75em;
 }
 
+table{
+    table-layout: fixed;
+    width: 100%;
+    align-items: center;
+}
+
+td{
+    align-items: center;
+}
+
+legend.legendtitle {
+    width:auto; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+    background-color:rgba(0, 0, 0, 0.638);
+    color:white;
+}
+
+fieldset.account{
+    background: url('/static/account.PNG') no-repeat; 
+    color: #f9f5f5;
+    font-weight: bold;
+}
+
+fieldset.plans{
+    background: url('/static/plans.jpg') no-repeat center; 
+    color: #f9f5f5;
+}
+
+fieldset.day{
+    background: url('/static/daytime2.PNG') no-repeat;  
+    color: #f9f5f5;
+    
+}
+
+fieldset.evening{
+    background: url('/static/eve2.PNG') no-repeat;
+    color: #f9f5f5;
+}
+
+fieldset.night{
+    background: url('/static/nighttime2.jpeg') no-repeat;
+    color: #f9f5f5;
+    
+}
+
+fieldset.international{
+    background: url('/static/int.PNG') no-repeat center;
+    color: #f9f5f5;
+}
+
+.accountin{
+    width: 25%;
+    color: black;
+}
+
+.timecalls{
+    width: 50%;
+    color: black;
+}
+
+.voicetext{
+    width: 25%;
+    color: black;
+}
+
+select{
+    width: 55%;
+    height: 30px;
+    color: black;
+}
+
+fieldset label{
+    font-weight:bold;
+  }
+
+fieldset {
+    border: 2px solid black !important;
+    /* display:inline; */
+    margin: 50px;
+    width: 80%;
+    height: 80%;
+    padding:15px 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    font-weight: bold;
+    /* background: url('/static/daytime.PNG') no-repeat; */
+    /* text-align: center;    */
+
+}
+
+.btn-center{
+    text-align: center;
+}
+
+.check-btn{
+    height: 100%;
+    /* width: 100%; */
+    margin-bottom: 20px;
+    padding: 5px 50px 5px 50px;
+    color: #f9f5f5;
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    background-color:rgba(10, 4, 31, 0.596);
+    border-radius: 5%;
+    border-color: white;
+    /* background: url('/static/plans.PNG') no-repeat center; */
+}
+
 .myForm {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 1.5em;

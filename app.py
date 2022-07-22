@@ -10,7 +10,7 @@ app = Flask(__name__)
 # ------------------
 @app.route('/')
 def display():
-    return render_template("prediction.html")
+    return render_template("prediction2.html")
 
 @app.route('/dashboard')
 def show():
@@ -24,19 +24,19 @@ def main():
     if request.method == "POST":
         
         # Unpickle classifier
-        clf = joblib.load("svmclf.pkl")
+        clf = joblib.load("xgbmodel3.pkl")
         
         # Get values through input bars
         accountlength = int(request.form.get("accountlength"))
 
         location = request.form.get("location")
         print(location)
-        if (location == '445'):
-            location = 1
-        elif (location == '452'):
-            location = 2
-        elif (location == '547'):
-            location = 3
+        # # if (location == '445'):
+        # #     location = 1
+        # # elif (location == '452'):
+        # #     location = 2
+        # # elif (location == '547'):
+        # #     location = 3
 
         intplan = request.form.get("intplan")
         if (intplan == 'yes'):
@@ -54,42 +54,63 @@ def main():
         servicecalls = int(request.form.get("servicecalls"))
         daymin = float(request.form.get("daymin"))
         daycalls = int(request.form.get("daycalls"))
+        daycharge = float(request.form.get("daycharge"))
         evemin = float(request.form.get("evemin"))
         evecalls = int(request.form.get("evecalls"))
+        evecharge = float(request.form.get("evecharge"))
         nightmin = float(request.form.get("nightmin"))
         nightcalls = int(request.form.get("nightcalls"))
+        nightcharge = float(request.form.get("nightcharge"))
         intmin = float(request.form.get("intmin"))
         intcalls = int(request.form.get("intcalls"))
+        intcharge = float(request.form.get("intcharge"))
 
-        daycharge = daymin*0.17
-        evecharge = evemin*0.085
-        nightcharge = nightmin*0.045
-        intcharge = intmin*0.27
+        # accountlength= 91
+        # servicecalls = 2
+        # daymin = 258.4
+        # daycalls = 112
+        # daycharge = 42.89
+        # evemin = 190
+        # evecalls = 93
+        # evecharge = 14.47
+        # nightmin = 158.6
+        # nightcalls = 105
+        # nightcharge = 7.09
+        # intmin = 12.1
+        # intcalls = 3
+        # intcharge = 3.27
+        # intplan = 1
+        # voiceplan = 0
+        # voicemsgs = 0
 
-        print(type(accountlength))
-        print(type(location))
-        print(type(intplan))
-        print(type(voiceplan))
-        print(type(voicemsgs))
-        print(type(daymin))
-        print(type(daycalls))
-        print(type(servicecalls))
+        # daycharge = daymin*0.17
+        # evecharge = evemin*0.085
+        # nightcharge = nightmin*0.045
+        # intcharge = intmin*0.27
 
-        
+        print(accountlength)
+        print(location)
+        print(intplan)
+        print(voiceplan)
+        print(voicemsgs)
+        print(daymin)
+        print(daycalls)
+        print(servicecalls)
+
+        totalcharge = daycharge + evecharge + nightcharge
+        totalcalls = daycalls + evecalls + nightcalls
+        totalmin = daymin + evemin + nightmin
+
         # Put inputs to dataframe
-        X = pd.DataFrame([[accountlength, location,intplan,voiceplan,voicemsgs,
-        daymin,daycalls,daycharge,
-        evemin,evecalls,evecharge,
-        nightmin,nightcalls,nightcharge,
-        intmin,intcalls,intcharge,servicecalls]],
-         columns = ["account_length", "location_code","intertiol_plan","voice_mail_plan","number_vm_messages",
-         "total_day_min","total_day_calls","total_day_charge",
-         "total_eve_min","total_eve_calls","total_eve_charge",
-         "total_night_minutes","total_night_calls","total_night_charge",
-         "total_intl_minutes","total_intl_calls","total_intl_charge","customer_service_calls"])
+        X = pd.DataFrame([[accountlength, intplan,voiceplan,voicemsgs,
+        intmin,intcalls,intcharge,servicecalls,totalcharge,totalcalls,totalmin]],
+         columns = ["account_length", "intertiol_plan","voice_mail_plan","number_vm_messages",
+         "total_intl_minutes","total_intl_calls","total_intl_charge","customer_service_calls",
+         "total_charge","total_calls","total_min"])
         
         # Get prediction
         prediction = clf.predict(X)[0]
+        print(prediction)
         # prediction = 1
         
     else:

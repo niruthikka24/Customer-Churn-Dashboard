@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/static/prediction.css">
+
+    <style>
+        fieldset {
+            background-color: #eeeeee;
+        }
+
+        legend {
+            background-color: gray;
+            color: white;
+            padding: 5px 10px;
+        }
+
+        input {
+            margin: 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        // function EnableDisable(voiceplan) {
+        //     //Reference the Button.
+        //     var voicemsgs= document.getElementsById("voicemsgs");
+     
+        //     //Verify the TextBox value.
+        //     if (voiceplan.value == "yes") {
+        //         //Enable the TextBox when TextBox has value.
+        //         voicemsgs.disabled = false;
+        //     } else {
+        //         //Disable the TextBox when TextBox is empty.
+        //         voicemsgs.disabled = true;
+        //     }
+        // };
+        // function voicemsgactivate(){
+        //     document.getElementsById("voicemsgs").disabled = true;
+        // }
+        // function voicemsgdeactivate(){
+        //     document.getElementsById("voicemsgs").disabled = true;
+        // }
+    </script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand">CHURN ALERT</a> <!-- href="#" -->
+            </div>
+            <ul class="nav navbar-nav">
+
+                <li><a href="http://127.0.0.1:5000/dashboard">Churn Report</a></li>
+                <li><a href="http://127.0.0.1:5000/">Churn Prediction</a></li>
+
+            </ul>
+        </div>
+    </nav>
+    <br><br><br>
+
+    <form method="POST">
+        <table>
+            <tr>
+                <td>
+                    <fieldset class="account">
+                        <legend class="legendtitle">Account Details</legend>
+                        <label for="accountlength">Account Length:</label>
+                        <input class="accountin" type="number" name="accountlength">months<br><br>
+                        <label for="servicecalls">Number of Service Calls:</label>
+                        <input class="accountin" type="number" name="servicecalls"><br><br>
+                        <p>
+                            <label for="location">Location: 
+                            <select id="pickup_place" name="location">
+                            <option value="" selected="selected">Select One</option>
+                            <option value="445" >445</option>
+                            <option value="452" >452</option>
+                            <option value="547" >547</option>
+                            </select>
+                            </label> 
+                        </p><br>
+                    </fieldset>
+                </td>
+                <td>
+                    <fieldset class="plans">
+                        <legend class="legendtitle">Plans</legend>
+                        <label for="intplan">International Plan:</label>
+                        <p>
+                            <label class="choice"> <input type="radio" name="intplan" required value="yes"> Yes </label>
+                            <label class="choice"> <input type="radio" name="intplan" required value="no"> No </label>
+                        </p>
+                        <label for="voiceplan">Voice Mail Plan:</label>
+                        <p>
+                            <label class="choice"> <input type="radio" name="voiceplan" required value="yes"> Yes </label>
+                            <label class="choice"> <input type="radio" name="voiceplan" required value="no"> No </label>
+                        </p>
+                        <label for="minutes">No. of Voicemail Messages:</label>
+                        <input class="voicetext" type="number" id="voicemsgs" name="voicemsgs"><br><br>
+                    </fieldset>
+                </td>
+                <td>
+                    <fieldset class="international">
+                        <legend class="legendtitle">International</legend>
+                        <label for="minutes">Minutes:</label>
+                        <input class="timecalls" type="number" step="0.01" name="intmin"><br><br>
+                        <label for="charge">Charge:</label>
+                        <input class="timecalls" type="number" step="0.01" name="intcharge"><br><br>
+                        <label for="calls">Calls:</label>
+                        <input class="timecalls" type="number" name="intcalls"><br><br>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset class="day">
+                        <legend class="legendtitle">Day Time</legend>
+                        <label for="minutes">Minutes:</label>
+                        <input class="timecalls" type="number" step="0.01" name="daymin"><br><br>
+                        <label for="charge">Charge:</label>
+                        <input class="timecalls" type="number" step="0.01" name="daycharge"><br><br>
+                        <label for="calls">Calls:</label>
+                        <input class="timecalls" type="number" name="daycalls"><br><br>
+                    </fieldset>
+                </td>
+                <td>
+                    <fieldset class="evening">
+                        <legend class="legendtitle">Evening Time</legend>
+                        <label for="minutes">Minutes:</label>
+                        <input class="timecalls" type="number" step="0.01" name="evemin"><br><br>
+                        <label for="charge">Charge:</label>
+                        <input class="timecalls" type="number" step="0.01" name="evecharge"><br><br>
+                        <label for="calls">Calls:</label>
+                        <input class="timecalls" type="number" name="evecalls"><br><br>
+                    </fieldset>
+                </td>
+                <td>
+                    <fieldset class="night">
+                        <legend class="legendtitle">Night Time</legend>
+                        <label for="minutes">Minutes:</label>
+                        <input class="timecalls" type="number" step="0.01" name="nightmin"><br><br>
+                        <label for="charge">Charge:</label>
+                        <input class="timecalls" type="number" step="0.01" name="nightcharge"><br><br>
+                        <label for="calls">Calls:</label>
+                        <input class="timecalls" type="number" name="nightcalls"><br><br>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <div class="btn-center"><button class="check-btn">SUBMIT</button></div>
+    </form>
+
+</body>
+
+</html>

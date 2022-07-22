@@ -41,11 +41,13 @@
             var result = document.getElementById('result');
             var x = "{{output}}";
             if (x==0){
-                imgelem.src = "https://whitneysmithco.com/wp-content/uploads/2020/03/customer-clipart-customer-delight-413503-9190340.png";
+                // imgelem.src = "https://whitneysmithco.com/wp-content/uploads/2020/03/customer-clipart-customer-delight-413503-9190340.png";
+                imgelem.src = "{{url_for('static', filename='churngreen.PNG')}}"
                 value = "<h1 style='font-family:courier; color:green;  font-weight:bold; '>Non Churn Customer</h1><br><br><br>"
             }
             else if (x==1){
-                imgelem.src = "https://t4.ftcdn.net/jpg/03/88/07/81/360_F_388078160_MURgcPkWnYcfbcH8mdtQopQRXyTiQUAc.jpg";
+                // imgelem.src = "https://t4.ftcdn.net/jpg/03/88/07/81/360_F_388078160_MURgcPkWnYcfbcH8mdtQopQRXyTiQUAc.jpg";
+                imgelem.src = "{{url_for('static', filename='churnred.PNG')}}" 
                 value = "<h1 style='font-family:courier; color:red;  font-weight:bold;'>Churn Customer</h1>"
             }
             result.insertAdjacentHTML('afterbegin',value);
